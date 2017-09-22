@@ -18,7 +18,7 @@ public class BinaryTree {
 		Node left;
 		Node right;
 		Node parent;
-		int max_of_subtree; //max value in subtree rooted at current node
+		int maxInSubtree; //max value in subtree rooted at current node
 		String buffer; //buffer containing all nodes in subtree
 			
 		public Node(int val){
@@ -26,7 +26,7 @@ public class BinaryTree {
 			left = null;
 			right = null;
 			parent = null;
-			max_of_subtree = Integer.MIN_VALUE;
+			maxInSubtree = Integer.MIN_VALUE;
 			buffer = "";
 		}
 		
@@ -48,11 +48,11 @@ public class BinaryTree {
 		}
 		
 		/**
-		 * Getter/accessor for the "max_of_subtree" field
-		 * @return int value of the "max_of_subtree" field
+		 * Getter/accessor for the "maxInSubtree" field
+		 * @return int value of the "maxInSubtree" field
 		 */
 		public int getMaxField(){
-			return max_of_subtree;
+			return maxInSubtree;
 		}
 		
 		/**
@@ -84,7 +84,7 @@ public class BinaryTree {
 	/**
 	 * Recursively call to find max bottoms out at leaf nodes and
 	 * starts passing the max values observed in a given subtree back
-	 * also sets the "max_of_subtree" field of each node along the way
+	 * also sets the "maxInSubtree" field of each node along the way
 	 * @param node the current node
 	 * @return the max value observed in the subtree rooted at the current node.
 	 */
@@ -94,8 +94,8 @@ public class BinaryTree {
 			return Integer.MIN_VALUE;
 		}else{
 			//recursive case called on internal nodes.
-			node.max_of_subtree = Integer.max(node.value, Integer.max(FindMax(node.left), FindMax(node.right)));
-			return node.max_of_subtree;
+			node.maxInSubtree = Integer.max(node.value, Integer.max(FindMax(node.left), FindMax(node.right)));
+			return node.maxInSubtree;
 		}
 	}
 	
